@@ -22,9 +22,89 @@
   </header>
   <div class="container">
     <div class="text-center mb-5">
-      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal" id="toggle-btn-form">Add Task</button>
     </div>
     <!-- Todo: Create a modal with a form to add tasks -->
+
+    <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="formModalLabel">Add Task</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+    
+            <form id="project-form">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <input
+                    id="project-name-input"
+                    type="text"
+                    class="form-control"
+                    placeholder="Project Name"
+                    aria-label="Project Name"
+                  />
+                </li>
+                <li class="list-group-item">
+                  <select id="project-type-input" class="form-select">
+                    <option value="Project Type" disabled selected>
+                      Project Type
+                    </option>
+                    <option value="Web Application (Front End)">
+                      Web Application (Front End)
+                    </option>
+                    <option value="Web Application (Back End)">
+                      Web Application (Back End)
+                    </option>
+                    <option value="Web Application (Full Stack)">
+                      Web Application (Full Stack)
+                    </option>
+                    <option value="Mobile Application">
+                      Mobile Application
+                    </option>
+                    <option value="Print Campaign">Print Campaign</option>
+                    <option value="Digital Marketing Campaign">
+                      Digital Marketing Campaign
+                    </option>
+                  </select>
+                </li>
+                <li class="list-group-item">
+                  <input
+                    placeholder="Task Due Date"
+                    autocomplete="off"
+                    type="date"
+                    class="form-control mb-3"
+                    id="taskDueDate"
+                  />
+                </li>
+              </ul>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-custom">
+                  Add Project
+                </button>
+              </div>
+            </form>
+    
+            <!-- Form to add tasks -->
+            <!-- <form id="taskForm">
+              <div class="mb-3">
+                <label for="taskName" class="form-label">Task Name</label>
+                <input type="text" class="form-control" id="taskName" required>
+              </div>
+              <!-- You can add more input fields for additional task details here -->
+              <!--<button type="submit" class="btn btn-primary">Add</button>
+            </form> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <!-- Modal for adding tasks -->
+
+    <!----------------------------------------------------->
     <div class="row swim-lanes text-center justify-content-between">
       <div class="col-12 col-lg-4 d-flex">
         <div id="to-do" class="card border-light mb-3 lane flex-grow-1">
@@ -67,7 +147,7 @@
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
 
-  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/script1.js"></script>
 </body>
 
 </html>
