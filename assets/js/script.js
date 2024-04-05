@@ -129,7 +129,7 @@ function saveProjectsToStorage(tasks) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Todo: create a function to render the task list and make cards draggable
+//function to render the task list and make cards draggable
 function renderTaskList() 
 {
    // ? Retrieve projects from localStorage and parse the JSON to an array.
