@@ -21,9 +21,8 @@ function generateTaskId() {
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
-
   
-  task.id = generateTaskId();
+  //task.id = generateTaskId();
   //alert('task id '+ task.id);
   const taskCard = $('<div>')
   .addClass('card project-card draggable my-3')
@@ -36,7 +35,7 @@ const cardDeleteBtn = $('<button>')
   .addClass('btn btn-danger delete')
   .text('Delete')
   .attr('data-project-id', task.id);
-//cardDeleteBtn.on('click', handleDeleteTask);
+cardDeleteBtn.on('click', handleDeleteTask);
 
 // ? Sets the card background color based on due date. Only apply the styles if the dueDate exists and the status is not done.
 if (task.dueDate && task.status !== 'done') {
@@ -152,10 +151,9 @@ function renderTaskList() {
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
 
-  
-
-  //alert("handle add task");
   event.preventDefault();
+
+  const taskId = generateTaskId();
 
   // ? Read user input from the form
   const projectName = projectNameInputEl.val().trim();
@@ -164,6 +162,7 @@ function handleAddTask(event){
 
   const newProject = {
     // ? Here we use a Web API called `crypto` to generate a random id for our project. This is a unique identifier that we can use to find the project in the array. `crypto` is a built-in module that we can use in the browser and Nodejs.    id: crypto.randomUUID(),
+    id: taskId,
     name: projectName,
     type: projectType,
     dueDate: projectDate,
@@ -188,6 +187,25 @@ function handleAddTask(event){
 
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
+
+  const projectId = $(this).attr('data-project-id');
+  
+  const tasks = renderTaskList();
+  
+  // ? Remove project from the array. There is a method called `filter()` for this that is better suited which we will go over in a later activity. For now, we will use a `forEach()` loop to remove the project.
+  tasks.forEach((task) => {
+    if (task.id === projectId) {
+
+      alert(true);
+      tasks.splice(tasks.indexOf(task), 1);
+    }
+  });
+
+  // ? We will use our helper function to save the projects to localStorage
+  saveProjectsToStorage(tasks);
+
+  // ? Here we use our other function to print projects back to the screen
+  printProjectData();
 
 }
 
