@@ -184,8 +184,6 @@ function handleAddTask(event){
   projectNameInputEl.val('');
   projectTypeInputEl.val('');
   projectDateInputEl.val('');
-
-
 }
 
 // Todo: create a function to handle deleting a task
@@ -197,6 +195,8 @@ function handleDeleteTask(event){
 function handleDrop(event, ui) {
 
 }
+
+projectFormEl.on('submit', handleAddTask);
 
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
 $(document).ready(function () {
