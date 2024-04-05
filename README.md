@@ -19,5 +19,15 @@ Task can be deleted from any coloumn.
 
 # Following are the screenshots of Task-board Application:
 
+![Added three tasks to the task board and changes the state of two of them to in progress and then completion. ](/assets/images/TaskList.png)
 
+![Picture showing data modal to add new task. ](/assets/images/AddTask.png)
+
+# App deploye Link:
+
+    https://amandeepsandhu13.github.io/task-board/
+
+# Repository link: 
+
+    https://github.com/amandeepsandhu13/task-board
 
