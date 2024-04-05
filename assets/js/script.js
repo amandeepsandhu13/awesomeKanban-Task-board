@@ -219,7 +219,6 @@ function handleDrop(event, ui) {
 
     if (task.id === taskId) {
       task.status = newStatus;
-      alert(newStatus + "status");
     }
   }
   // Save the updated projects array to localStorage (overwritting the previous one) and render the new project data to the screen.
