@@ -235,6 +235,11 @@ projectDisplayEl.on('click', '.btn-delete-project', handleDeleteTask);
 $(document).ready(function () {
 
   printProjectData();
+
+  $('#taskDueDate').datepicker({
+    changeMonth: true,
+    changeYear: true,
+  });
       // ? Make lanes droppable
   $('.lane').droppable({
       accept: '.draggable',
