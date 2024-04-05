@@ -242,6 +242,14 @@ projectDisplayEl.on('click', '.btn-delete-project', handleDeleteTask);
 $(document).ready(function () {
 
   printProjectData();
+      // ? Make lanes droppable
+  $('.lane').droppable({
+      accept: '.draggable',
+      drop: handleDrop,
+  });
+  
+
+  
 
 });
 
