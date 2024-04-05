@@ -24,7 +24,7 @@ function createTaskCard(task) {
 
   
   task.id = generateTaskId();
-  alert('task id '+ task.id);
+  //alert('task id '+ task.id);
   const taskCard = $('<div>')
   .addClass('card project-card draggable my-3')
   .attr('data-project-id', task.id);
@@ -59,13 +59,11 @@ taskCard.append(cardHeader, cardBody);
 // ? Return the card so it can be appended to the correct lane.
 return taskCard;
 
-
 }
 
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
 
-alert("render task list");
 // ? Retrieve projects from localStorage and parse the JSON to an array.
 // ? We use `let` here because there is a chance that there are no projects in localStorage (which means the projects variable will be equal to `null`) and we will need it to be initialized to an empty array.
 let tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -153,6 +151,40 @@ function renderTaskList() {
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
+
+  
+
+  //alert("handle add task");
+  event.preventDefault();
+
+  // ? Read user input from the form
+  const projectName = projectNameInputEl.val().trim();
+  const projectType = projectTypeInputEl.val(); // don't need to trim select input
+  const projectDate = projectDateInputEl.val(); // yyyy-mm-dd format
+
+  const newProject = {
+    // ? Here we use a Web API called `crypto` to generate a random id for our project. This is a unique identifier that we can use to find the project in the array. `crypto` is a built-in module that we can use in the browser and Nodejs.    id: crypto.randomUUID(),
+    name: projectName,
+    type: projectType,
+    dueDate: projectDate,
+    status: 'to-do',
+  };
+
+  // ? Pull the projects from localStorage and push the new project to the array
+  const tasks = renderTaskList();
+  tasks.push(newProject);
+
+  // ? Save the updated projects array to localStorage
+  saveProjectsToStorage(tasks);
+
+  // ? Print project data back to the screen
+  printProjectData();
+
+  // ? Clear the form inputs
+  projectNameInputEl.val('');
+  projectTypeInputEl.val('');
+  projectDateInputEl.val('');
+
 
 }
 
