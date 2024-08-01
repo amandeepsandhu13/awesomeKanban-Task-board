@@ -25,7 +25,7 @@ Task can be deleted from any coloumn.
 
 # App deploye Link:
 
-    https://amandeepsandhu13.github.io/task-board/
+https://amandeepsandhu13.github.io/awesomeKanban-Task-board/
 
 # Repository link: 
 
